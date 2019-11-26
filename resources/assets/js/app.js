@@ -1,0 +1,62 @@
+
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+
+require('./bootstrap');
+
+window.Vue = require('vue');
+
+//Multi-Select
+import vSelect from 'vue-select';
+Vue.component('v-select', vSelect);
+
+//Timepicker
+import VueTimepicker from 'vuejs-timepicker';
+Vue.component('v-timepicker', VueTimepicker);
+
+//Barcode
+import VueBarcode from 'vue-barcode';
+Vue.component('barcode', VueBarcode);
+
+/**
+ * The following block of code may be used to automatically register your
+ * Vue components. It will recursively scan this directory for the Vue
+ * components and automatically register them with their "basename".
+ *
+ * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+ */
+
+// const files = require.context('./', true, /\.vue$/i)
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+
+Vue.component('role', require('./components/Role.vue').default);
+Vue.component('teacher', require('./components/Teacher.vue').default);
+Vue.component('group', require('./components/Group.vue').default);
+Vue.component('student', require('./components/Student.vue').default);
+Vue.component('activity', require('./components/Activity.vue').default);
+Vue.component('q8', require('./components/Q8.vue').default);
+Vue.component('grupos_maestro', require('./components/GruposMaestro.vue').default);
+Vue.component('califications', require('./components/Califications.vue').default);
+Vue.component('students_list', require('./components/StudentsList.vue').default);
+Vue.component('inscripcion', require('./components/Inscripcion.vue').default);
+
+//Users
+    Vue.component('user', require('./components/Users/User.vue').default);
+    Vue.component('create_user', require('./components/Users/CreateUser.vue').default); //Create
+//
+
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
+
+const app = new Vue({
+    el: '#app',
+    data:{
+        menu:0
+    }
+});
